@@ -1,0 +1,1 @@
+build(deps-dev): bump electron from 39.5.1 to 40.6.1 (#7)
