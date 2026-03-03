@@ -70,8 +70,8 @@ test('app launches and redirects to Microsoft login', async () => {
     const url = mainWindow.url();
     expect(new URL(url).hostname).toBe('login.microsoftonline.com');
 
-    // Wait for the login page to be fully loaded
-    await mainWindow.waitForLoadState('networkidle', { timeout: 30000 });
+    // Wait for the login page DOM to be ready
+    await mainWindow.waitForLoadState('domcontentloaded', { timeout: 30000 });
 
   } finally {
     // Gracefully close the app if it exists

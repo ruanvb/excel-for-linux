@@ -254,19 +254,6 @@ function onAppTerminated(signal) {
   }
 }
 
-function handleShortcutCommand({ action, shortcut }) {
-  if (!shortcut) return;
-
-  const window = mainAppWindow.getWindow();
-  if (window && !window.isDestroyed()) {
-    const { sendKeyboardEventToWindow } = require("./globalShortcuts");
-    sendKeyboardEventToWindow(window, shortcut);
-    console.info(`[SHORTCUT] Executed command '${action}' -> ${shortcut}`);
-  } else {
-    console.warn(`[SHORTCUT] Cannot execute command '${action}': window not available`);
-  }
-}
-
 function showConfigurationDialogs() {
   if (config.error) {
     dialog.showMessageBox({
