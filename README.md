@@ -190,6 +190,13 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for developmen
 
 ---
 
+## Credits
+
+This project is a fork of [teams-for-linux](https://github.com/IsmaelMartinez/teams-for-linux) by [Ismael Martinez](https://github.com/IsmaelMartinez) and its contributors.
+The original project provides a native Linux wrapper for Microsoft Teams using Electron, and served as the foundation for this Excel Online client.
+
+---
+
 ## License
 
 **GPL-3.0-or-later** — See [LICENSE.md](LICENSE.md)
