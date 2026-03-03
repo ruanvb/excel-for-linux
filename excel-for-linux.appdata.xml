@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>excel-for-linux</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Excel for Linux</name>
+  <summary>Unofficial Microsoft Excel Online client for Linux</summary>
+  <description>
+    <p>
+      Excel for Linux is an unofficial desktop client for Microsoft Excel Online (Office 365).
+      It wraps the Microsoft Excel web application as a standalone Electron-based desktop app,
+      providing a native Linux experience with system integration features.
+    </p>
+    <p>Features include:</p>
+    <ul>
+      <li>Native desktop window for Microsoft Excel Online</li>
+      <li>System tray integration</li>
+      <li>System notifications</li>
+      <li>Custom CSS support</li>
+      <li>Screen sharing support</li>
+      <li>Multiple account profiles via partitions</li>
+      <li>Offline page with retry support</li>
+      <li>Spell checker integration</li>
+    </ul>
+    <p>
+      This is an independent open-source project not affiliated with or endorsed by Microsoft.
+    </p>
+  </description>
+  <url type="homepage">https://github.com/your-username/excel-for-linux</url>
+  <url type="bugtracker">https://github.com/your-username/excel-for-linux/issues</url>
+  <launchable type="desktop-id">excel-for-linux.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Excel for Linux main window</caption>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release version="0.1.0" date="2026-03-03">
+      <description>
+        <p>Initial release of Excel for Linux</p>
+        <ul>
+          <li>Electron-based wrapper for Microsoft Excel Online</li>
+          <li>System tray, notifications, screen sharing, and custom CSS support</li>
+          <li>Multiple partition support for different accounts</li>
+          <li>Offline retry and connection management</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+  <content_rating type="oars-1.1" />
+  <keywords>
+    <keyword>Excel</keyword>
+    <keyword>Microsoft Excel</keyword>
+    <keyword>Office 365</keyword>
+    <keyword>spreadsheet</keyword>
+    <keyword>Microsoft 365</keyword>
+  </keywords>
+</component>

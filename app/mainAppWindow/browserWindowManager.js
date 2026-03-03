@@ -1,0 +1,188 @@
+const {
+  app,
+  BrowserWindow,
+  ipcMain,
+  nativeImage,
+  session,
+  nativeTheme,
+  powerSaveBlocker,
+} = require("electron");
+const path = require("node:path");
+const windowStateKeeper = require("electron-window-state");
+const { StreamSelector } = require("../screenSharing");
+
+class BrowserWindowManager {
+  constructor(properties) {
+    this.config = properties.config;
+    this.iconChooser = properties.iconChooser;
+    this.isOnCall = false;
+    this.blockerId = null;
+    this.window = null;
+  }
+
+  /**
+   * Get screen lock inhibition method from config.
+   * Supports both new (screenSharing.lockInhibitionMethod) and legacy (screenLockInhibitionMethod) paths.
+   * @returns {string} "Electron" or "WakeLockSentinel"
+   */
+  get screenLockInhibitionMethod() {
+    return this.config?.screenSharing?.lockInhibitionMethod ??
+           this.config?.screenLockInhibitionMethod ??
+           "Electron";
+  }
+
+  async createWindow() {
+    // Load the previous state with fallback to defaults
+    const windowState = windowStateKeeper({
+      defaultWidth: 0,
+      defaultHeight: 0,
+    });
+
+    if (this.config.clearStorageData) {
+      console.debug("Clearing storage data", this.config.clearStorageData);
+      const defSession = session.fromPartition(this.config.partition);
+      await defSession.clearStorageData(this.config.clearStorageData);
+    }
+
+    // Create the window
+    this.window = this.createNewBrowserWindow(windowState);
+    this.assignEventHandlers();
+
+    windowState.manage(this.window);
+
+    this.window.eval = globalThis.eval = function () {
+      // eslint-disable-line no-eval
+      throw new Error("Sorry, this app does not support window.eval().");
+    };
+
+    return this.window;
+  }
+
+  /**
+   * Converts an icon path to a nativeImage.
+   * On Linux/KDE, the BrowserWindow icon must be a nativeImage for proper
+   * display in the window list/panel (similar to tray icon fix in #2096).
+   * @param {string} iconPath - Path to the icon file
+   * @returns {Electron.NativeImage|undefined} The native image or undefined if no path
+   */
+  getIconImage(iconPath) {
+    return iconPath ? nativeImage.createFromPath(iconPath) : undefined;
+  }
+
+  createNewBrowserWindow(windowState) {
+    return new BrowserWindow({
+      title: "Excel for Linux",
+      x: windowState.x,
+      y: windowState.y,
+
+      width: windowState.width,
+      height: windowState.height,
+      backgroundColor: nativeTheme.shouldUseDarkColors ? "#302a75" : "#fff",
+
+      show: false,
+      autoHideMenuBar: this.config.menubar == "auto",
+      icon: this.iconChooser ? this.getIconImage(this.iconChooser.getFile()) : undefined,
+      frame: this.config.frame,
+
+      webPreferences: {
+        partition: this.config.partition,
+        preload: path.join(__dirname, "..", "browser", "preload.js"),
+        plugins: true,
+        spellcheck: true,
+        webviewTag: true,
+        // SECURITY: Disabled for Teams DOM access, compensated by IPC validation
+        contextIsolation: false,  // Required for ReactHandler DOM access
+        nodeIntegration: false,   // Secure: preload scripts don't need this
+        sandbox: false,           // Required for system API access
+      },
+    });
+  }
+
+  assignEventHandlers() {
+    // Handle screen sharing source selection from user
+    ipcMain.on("select-source", this.assignSelectSourceHandler());
+    if (this.screenLockInhibitionMethod === "WakeLockSentinel") {
+      this.window.on("restore", this.enableWakeLockOnWindowRestore);
+    }
+    // Notify when a call is connected
+    ipcMain.handle("call-connected", this.assignOnCallConnectedHandler());
+    // Notify when a call is disconnected
+    ipcMain.handle("call-disconnected", this.assignOnCallDisconnectedHandler());
+  }
+
+  assignSelectSourceHandler() {
+    return (event) => {
+      const streamSelector = new StreamSelector(this.window);
+      streamSelector.show((source) => {
+        event.reply("select-source", source);
+      });
+    };
+  }
+
+  disableScreenLockElectron() {
+    if (this.blockerId == null) {
+      this.blockerId = powerSaveBlocker.start("prevent-display-sleep");
+      console.debug(
+        `Power save is disabled using ${this.screenLockInhibitionMethod} API.`
+      );
+      return true;
+    }
+    return false;
+  }
+
+  disableScreenLockWakeLockSentinel() {
+    this.window.webContents.send("enable-wakelock");
+    console.debug(
+      `Power save is disabled using ${this.screenLockInhibitionMethod} API.`
+    );
+    return true;
+  }
+
+  enableScreenLockElectron() {
+    if (this.blockerId != null && powerSaveBlocker.isStarted(this.blockerId)) {
+      console.debug(
+        `Power save is restored using ${this.screenLockInhibitionMethod} API`
+      );
+      powerSaveBlocker.stop(this.blockerId);
+      this.blockerId = null;
+      return true;
+    }
+    return false;
+  }
+
+  enableScreenLockWakeLockSentinel() {
+    this.window.webContents.send("disable-wakelock");
+    console.debug(
+      `Power save is restored using ${this.screenLockInhibitionMethod} API`
+    );
+    return true;
+  }
+
+  enableWakeLockOnWindowRestore() {
+    if (this.isOnCall) {
+      this.window.webContents.send("enable-wakelock");
+    }
+  }
+
+  assignOnCallConnectedHandler() {
+    return async (e) => {
+      this.isOnCall = true;
+      const result = this.screenLockInhibitionMethod === "Electron"
+        ? this.disableScreenLockElectron()
+        : this.disableScreenLockWakeLockSentinel();
+      return result;
+    };
+  }
+
+  assignOnCallDisconnectedHandler() {
+    return async (e) => {
+      this.isOnCall = false;
+      const result = this.screenLockInhibitionMethod === "Electron"
+        ? this.enableScreenLockElectron()
+        : this.enableScreenLockWakeLockSentinel();
+      return result;
+    };
+  }
+}
+
+module.exports = BrowserWindowManager;

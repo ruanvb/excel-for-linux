@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Application fails to launch after update",
+    "category": "Installation and Updates",
+    "description": "Users report that the application does not start or crashes immediately after an update.",
+    "solutions": "**Clear Application Cache:** Navigate to `~/.config/excel-for-linux/` and delete the `Cache` and `Code Cache` directories. Restart the application.\n**Reinstall the Application:** Completely uninstall the current version, download the latest release from GitHub, and perform a clean installation.",
+    "anchor": "issue-application-fails-to-launch-after-update",
+    "docUrl": "https://github.com/your-username/excel-for-linux",
+    "relatedIssues": [],
+    "source": "troubleshooting"
+  },
+  {
+    "title": "Blank screen or login loop",
+    "category": "Authentication",
+    "description": "The application shows a blank screen or keeps redirecting to the login page.",
+    "solutions": "**Clear stored session data:** Remove `~/.config/excel-for-linux/` (or `~/snap/excel-for-linux/current/.config/excel-for-linux/` for snap installs) and restart.\n**Check network connectivity:** Ensure office.com is reachable from your network.",
+    "anchor": "issue-blank-screen-or-login-loop",
+    "docUrl": "https://github.com/your-username/excel-for-linux",
+    "relatedIssues": [],
+    "source": "troubleshooting"
+  },
+  {
+    "title": "Custom CSS not applying",
+    "category": "Configuration",
+    "description": "User-defined custom CSS does not appear to take effect.",
+    "solutions": "**Verify the CSS file path** in your `~/.config/excel-for-linux/config.json` under `customCSSName`.\n**Check CSS syntax** for errors.\n**Restart the application** after making changes to the config file.",
+    "anchor": "issue-custom-css-not-applying",
+    "docUrl": "https://github.com/your-username/excel-for-linux",
+    "relatedIssues": [],
+    "source": "troubleshooting"
+  }
+]
