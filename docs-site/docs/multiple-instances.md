@@ -1,12 +1,12 @@
 # Multiple Instances (Profiles)
 
-Run separate isolated instances of Teams for Linux — perfect for work and personal accounts. Each profile maintains its own icon, session data, and window behavior.
+Run separate isolated instances of Excel for Linux — perfect for work and personal accounts. Each profile maintains its own icon, session data, and window behavior.
 
 ## Quick Start Examples
 
 ### Work Profile
 ```bash
-./teams-for-linux \
+./excel-for-linux \
   --appIcon=/path/to/work-icon.png \
   --class=teams-work \
   --user-data-dir=/home/user/.config/teams-profile-work
@@ -14,7 +14,7 @@ Run separate isolated instances of Teams for Linux — perfect for work and pers
 
 ### Personal Profile
 ```bash
-./teams-for-linux \
+./excel-for-linux \
   --appIcon=/path/to/personal-icon.png \
   --class=teams-personal \
   --user-data-dir=/home/user/.config/teams-profile-personal
@@ -103,9 +103,9 @@ Each profile can have its own `config.json` file in its respective user data dir
 #### Work Profile Desktop Entry
 ```ini
 [Desktop Entry]
-Name=Teams for Linux (Work)
-Comment=Microsoft Teams for Linux - Work Profile
-Exec=/path/to/teams-for-linux --class=teams-work --user-data-dir=%h/.config/teams-profile-work --appIcon=%h/.local/share/icons/teams-work.png
+Name=Excel for Linux (Work)
+Comment=Microsoft Excel for Linux - Work Profile
+Exec=/path/to/excel-for-linux --class=teams-work --user-data-dir=%h/.config/teams-profile-work --appIcon=%h/.local/share/icons/teams-work.png
 Icon=teams-work
 Terminal=false
 Type=Application
@@ -116,9 +116,9 @@ StartupWMClass=teams-work
 #### Personal Profile Desktop Entry
 ```ini
 [Desktop Entry]
-Name=Teams for Linux (Personal)
-Comment=Microsoft Teams for Linux - Personal Profile
-Exec=/path/to/teams-for-linux --class=teams-personal --user-data-dir=%h/.config/teams-profile-personal --appIcon=%h/.local/share/icons/teams-personal.png
+Name=Excel for Linux (Personal)
+Comment=Microsoft Excel for Linux - Personal Profile
+Exec=/path/to/excel-for-linux --class=teams-personal --user-data-dir=%h/.config/teams-profile-personal --appIcon=%h/.local/share/icons/teams-personal.png
 Icon=teams-personal
 Terminal=false
 Type=Application
@@ -131,7 +131,7 @@ StartupWMClass=teams-personal
 #### `teams-work.sh`
 ```bash
 #!/bin/bash
-/path/to/teams-for-linux \
+/path/to/excel-for-linux \
   --class=teams-work \
   --user-data-dir="$HOME/.config/teams-profile-work" \
   --appIcon="$HOME/.local/share/icons/teams-work.png" \
@@ -141,7 +141,7 @@ StartupWMClass=teams-personal
 #### `teams-personal.sh`
 ```bash
 #!/bin/bash
-/path/to/teams-for-linux \
+/path/to/excel-for-linux \
   --class=teams-personal \
   --user-data-dir="$HOME/.config/teams-profile-personal" \
   --appIcon="$HOME/.local/share/icons/teams-personal.png" \
@@ -156,13 +156,13 @@ For users managing multiple organizations:
 
 ```bash
 # Organization A
-./teams-for-linux \
+./excel-for-linux \
   --class=teams-org-a \
   --user-data-dir="$HOME/.config/teams-org-a" \
   --appTitle="Teams - Org A"
 
 # Organization B  
-./teams-for-linux \
+./excel-for-linux \
   --class=teams-org-b \
   --user-data-dir="$HOME/.config/teams-org-b" \
   --appTitle="Teams - Org B"
@@ -174,13 +174,13 @@ For developers working with different Teams environments:
 
 ```bash
 # Production environment
-./teams-for-linux \
+./excel-for-linux \
   --class=teams-prod \
   --user-data-dir="$HOME/.config/teams-production" \
   --url="https://teams.cloud.microsoft"
 
 # Development/Test environment
-./teams-for-linux \
+./excel-for-linux \
   --class=teams-dev \
   --user-data-dir="$HOME/.config/teams-development" \
   --url="https://teams-dev.company.com"
@@ -199,7 +199,7 @@ $HOME/.config/
 │   ├── config.json
 │   ├── Cache/
 │   └── Partitions/
-└── teams-for-linux/           # Default profile
+└── excel-for-linux/           # Default profile
     ├── config.json
     └── ...
 ```

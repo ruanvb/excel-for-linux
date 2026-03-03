@@ -99,7 +99,7 @@ Buffer APIs, `fs.symlink()`, and timer APIs have stricter type validation in Nod
 
 **Impact: Low - verify behavior**
 
-Chrome 142 added permission prompts for requests from public websites to local network addresses. Since Teams for Linux wraps `teams.microsoft.com`, requests to local services (e.g., MQTT broker) go through the main process (`app/mqtt/` module), not the renderer. Unlikely to be affected, but **verify** during testing.
+Chrome 142 added permission prompts for requests from public websites to local network addresses. Since Excel for Linux wraps `teams.microsoft.com`, requests to local services (e.g., MQTT broker) go through the main process (`app/mqtt/` module), not the renderer. Unlikely to be affected, but **verify** during testing.
 
 #### XSLT Deprecation (Chrome 143+)
 

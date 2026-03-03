@@ -170,7 +170,7 @@ During testing, the custom notification method exhibited sound issues that appea
 
 The most significant technical finding from this research is that Chromium's autoplay policy affects all renderer-side audio in Electron, not just `AudioContext`. Both `AudioContext` and `HTMLAudioElement` are subject to the same restriction: after the first play, subsequent audio requires a user gesture unless the autoplay policy is disabled.
 
-The `--autoplay-policy=no-user-gesture-required` command-line switch overrides this restriction globally. It has been added to `CommandLineManager.addSwitchesBeforeConfigLoad()` in `app/startup/commandLine.js` and is now active in the codebase. This switch is safe for this application because Teams for Linux is a desktop app where the user has already consented to run it, unlike a web browser where the policy prevents unwanted auto-playing media.
+The `--autoplay-policy=no-user-gesture-required` command-line switch overrides this restriction globally. It has been added to `CommandLineManager.addSwitchesBeforeConfigLoad()` in `app/startup/commandLine.js` and is now active in the codebase. This switch is safe for this application because Excel for Linux is a desktop app where the user has already consented to run it, unlike a web browser where the policy prevents unwanted auto-playing media.
 
 This switch is a prerequisite for Phase 3 (Web Audio fallback) and for any future renderer-side audio work.
 

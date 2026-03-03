@@ -108,7 +108,7 @@ jobs:
                 .replace(/^bash\s*$/gm, '')
                 .replace(/^markdown\s*$/gm, '')
                 .replace(
-                  /ELECTRON_ENABLE_LOGGING=true\s+teams-for-linux\s+--logConfig='[^']*'/g,
+                  /ELECTRON_ENABLE_LOGGING=true\s+excel-for-linux\s+--logConfig='[^']*'/g,
                   ''
                 )
                 .trim();
@@ -553,7 +553,7 @@ jobs:
                   '<summary><b>How to get debug logs</b></summary>\n\n' +
                   '1. Run the application from the terminal with logging enabled:\n' +
                   '   ```bash\n' +
-                  "   ELECTRON_ENABLE_LOGGING=true teams-for-linux --logConfig='{\"transports\":{\"console\":{\"level\":\"debug\"}}}'\n" +
+                  "   ELECTRON_ENABLE_LOGGING=true excel-for-linux --logConfig='{\"transports\":{\"console\":{\"level\":\"debug\"}}}'\n" +
                   '   ```\n' +
                   '2. Reproduce the issue\n' +
                   '3. Copy the relevant console output\n' +
@@ -565,7 +565,7 @@ jobs:
             // Troubleshooting guide link
             parts.push(
               '> **Tip:** You might also find helpful information in our ' +
-                '[Troubleshooting Guide](https://ismaelmartinez.github.io/teams-for-linux/troubleshooting).\n'
+                '[Troubleshooting Guide](https://github.com/ruanvb/excel-for-linux/issues).\n'
             );
 
             // Bot disclosure

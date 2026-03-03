@@ -1,7 +1,7 @@
 # GitHub Issue Bot Research & Implementation Plan
 
 :::info Phase 3 Shipped + Batch 1 Complete
-Phase 1 (Information Request Bot) shipped in v2.7.4 (PR [#2135](https://github.com/IsmaelMartinez/teams-for-linux/pull/2135)). Phase 2 (Solution Suggester) adds AI-powered matching against the troubleshooting guide and configuration docs using Gemini. Phase 3 (Duplicate Detector) compares new issues against a pre-processed index of open and recently closed issues via Gemini Flash. All three phases produce a single consolidated comment per issue. **Batch 1** improvements shipped: real-time issue index refresh (Phase 3.1), bot accuracy feedback loop, and changelog model consolidation. Phase 4 (enhancement context) is planned next.
+Phase 1 (Information Request Bot) shipped in v2.7.4 (PR [#2135](https://github.com/ruanvb/excel-for-linux/pull/2135)). Phase 2 (Solution Suggester) adds AI-powered matching against the troubleshooting guide and configuration docs using Gemini. Phase 3 (Duplicate Detector) compares new issues against a pre-processed index of open and recently closed issues via Gemini Flash. All three phases produce a single consolidated comment per issue. **Batch 1** improvements shipped: real-time issue index refresh (Phase 3.1), bot accuracy feedback loop, and changelog model consolidation. Phase 4 (enhancement context) is planned next.
 :::
 
 **Status:** Phase 1 ✅ Shipped (v2.7.4) | Phase 2 ✅ Shipped | Phase 3 ✅ Shipped | Batch 1 ✅ | Phase 4 planned
@@ -14,7 +14,7 @@ Phase 1 (Information Request Bot) shipped in v2.7.4 (PR [#2135](https://github.c
 
 ## Executive Summary
 
-This document investigates implementing an intelligent GitHub issue bot for Teams for Linux that could:
+This document investigates implementing an intelligent GitHub issue bot for Excel for Linux that could:
 
 1. **Suggest solutions** for common issues using existing documentation
 2. **Detect potential duplicate issues** from historical data
@@ -72,14 +72,14 @@ This might be related to a known issue. Here are some things that could help:
 - [Application Cache Issues](../../troubleshooting.md#issue-application-fails-to-launch-after-update) - If this started after an update
 
 **Could you try these steps?**
-1. Clear the application cache: `rm -rf ~/.config/teams-for-linux/Cache`
+1. Clear the application cache: `rm -rf ~/.config/excel-for-linux/Cache`
 2. Restart the application
 
 If this doesn't help, please share:
-- Your Teams for Linux version (`teams-for-linux --version`)
+- Your Excel for Linux version (`excel-for-linux --version`)
 - Your package type (AppImage, deb, rpm, snap, flatpak)
 - Console output when running with debug logging:
-  `teams-for-linux --logConfig='{"transports":{"console":{"level":"debug"}}}'`
+  `excel-for-linux --logConfig='{"transports":{"console":{"level":"debug"}}}'`
 
 *I'm a bot providing suggestions based on documentation. A maintainer will review this issue.*
 ```
@@ -159,13 +159,13 @@ For truly new features, the bot could:
 ℹ️ To help investigate this issue, could you provide some additional details?
 
 **Missing information:**
-- [ ] Teams for Linux version (`teams-for-linux --version`)
+- [ ] Excel for Linux version (`excel-for-linux --version`)
 - [ ] Package type (AppImage, deb, rpm, snap, flatpak)
 - [ ] Desktop environment (GNOME, KDE, etc.)
 - [ ] Debug console output
 
 **How to get debug logs:**
-1. Run: `teams-for-linux --logConfig='{"transports":{"console":{"level":"debug"}}}'`
+1. Run: `excel-for-linux --logConfig='{"transports":{"console":{"level":"debug"}}}'`
 2. Reproduce the issue
 3. Copy the relevant console output (feel free to redact sensitive info)
 
@@ -622,8 +622,8 @@ An intelligent GitHub issue bot could significantly reduce maintainer workload w
 
 ### Issue Templates
 
-- **[Bug Report Template](https://github.com/IsmaelMartinez/teams-for-linux/blob/main/.github/ISSUE_TEMPLATE/bug_report_form.yml)** - Current structure
-- **[Feature Request Template](https://github.com/IsmaelMartinez/teams-for-linux/blob/main/.github/ISSUE_TEMPLATE/feature_request_form.yml)** - Current structure
+- **[Bug Report Template](https://github.com/ruanvb/excel-for-linux/blob/main/.github/ISSUE_TEMPLATE/bug_report_form.yml)** - Current structure
+- **[Feature Request Template](https://github.com/ruanvb/excel-for-linux/blob/main/.github/ISSUE_TEMPLATE/feature_request_form.yml)** - Current structure
 
 ---
 

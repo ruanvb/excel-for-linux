@@ -10,7 +10,7 @@ PRs automatically get AI-generated changelog entries in `.changelog/pr-XXX.txt` 
 
 The easiest and most reliable method is to use the automated GitHub Actions workflow:
 
-1. Go to [Actions → Prepare Release](https://github.com/IsmaelMartinez/teams-for-linux/actions/workflows/prepare-release.yml)
+1. Go to [Actions → Prepare Release](https://github.com/ruanvb/excel-for-linux/actions/workflows/prepare-release.yml)
 2. Click "Run workflow"
 3. Select the version bump type:
    - `patch` - Bug fixes (2.6.19 → 2.6.20)
@@ -193,7 +193,7 @@ Then:
    - This triggers Flatpak
    - This triggers the **Snap Release** workflow, which builds and publishes the release version to the **candidate** channel
 2. Test the Snap candidate version
-3. Manually promote Snap candidate → stable: `snapcraft release teams-for-linux <revision> stable`
+3. Manually promote Snap candidate → stable: `snapcraft release excel-for-linux <revision> stable`
 
 :::info Snap Channels
 - **edge** — Every push to main. Versioned with commit SHA suffix (e.g., `2.7.5-edge.g1a2b3c4`)

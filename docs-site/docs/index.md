@@ -1,12 +1,12 @@
 ---
 id: index
-title: Teams for Linux Documentation
+title: Excel for Linux Documentation
 slug: /
 ---
 
-# Teams for Linux Documentation
+# Excel for Linux Documentation
 
-**Unofficial Microsoft Teams client for Linux** — a native desktop app that wraps the Teams web version with enhanced Linux integration.
+**Unofficial Microsoft Excel Online client for Linux** — a native desktop app that wraps the Teams web version with enhanced Linux integration.
 
 ✅ **System notifications**
 ✅ **System tray integration**
@@ -75,8 +75,8 @@ For detailed architecture documentation, see the [Development Guide](development
 
 ## Quick Start
 
-1. **Basic Usage**: Launch with `teams-for-linux`
-2. **Configuration**: Create `~/.config/teams-for-linux/config.json` with your settings
+1. **Basic Usage**: Launch with `excel-for-linux`
+2. **Configuration**: Create `~/.config/excel-for-linux/config.json` with your settings
 3. **Troubleshooting**: Check the [Troubleshooting Guide](troubleshooting.md) for common issues
 4. **Multiple Profiles**: Use `--user-data-dir` and `--class` flags for separate instances
 
@@ -85,5 +85,5 @@ For detailed architecture documentation, see the [Development Guide](development
 - **[Troubleshooting Guide](troubleshooting.md)** - Common issues and solutions
 - **[Installation Guide](installation.md)** - Setup and installation help
 - **[Contributing Guide](development/contributing.md)** - How to contribute to the project
-- 💬 **Chat**: [Matrix Space](https://matrix.to/#/#teams-for-linux-space:matrix.org)
-- 🐛 **Issues**: [Report bugs](https://github.com/IsmaelMartinez/teams-for-linux/issues)
+- 💬 **Chat**: [GitHub Discussions](https://github.com/ruanvb/excel-for-linux/discussions)
+- 🐛 **Issues**: [Report bugs](https://github.com/ruanvb/excel-for-linux/issues)

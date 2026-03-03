@@ -6,7 +6,7 @@ Infrastructure, LWT, and call state publishing are shipped. Phase 2 (WebRTC came
 
 **Date**: 2025-11-12
 **Updated**: 2026-01-18
-**Issue**: [#1938 - Extended MQTT Status Fields](https://github.com/IsmaelMartinez/teams-for-linux/issues/1938)
+**Issue**: [#1938 - Extended MQTT Status Fields](https://github.com/ruanvb/excel-for-linux/issues/1938)
 **Status**: Phase 1 Complete (Infrastructure + Documentation + LWT) | Phase 2 DEFERRED
 
 ## User Request
@@ -330,7 +330,7 @@ async publish(topic, payload, options = {}) {
 
 Phase 1 provides call state (`in-call`) and connection state (`connected`) via existing IPC events. Phase 2 would add camera and microphone state monitoring via WebRTC stream interception.
 
-**Deferral Reason**: Awaiting confirmation from user ([#1938](https://github.com/IsmaelMartinez/teams-for-linux/issues/1938)) that the current Phase 1 implementation is insufficient for their RGB LED automation needs. Will implement Phase 2 only if user confirms they need granular camera/mic state in addition to call state.
+**Deferral Reason**: Awaiting confirmation from user ([#1938](https://github.com/ruanvb/excel-for-linux/issues/1938)) that the current Phase 1 implementation is insufficient for their RGB LED automation needs. Will implement Phase 2 only if user confirms they need granular camera/mic state in addition to call state.
 
 **If/When Resumed:**
 - [ ] Create `app/browser/tools/mediaStatus.js`
@@ -766,8 +766,8 @@ Future bidirectional MQTT support with "state queries" would enable:
 
 ## References
 
-- **Issue #1938**: https://github.com/IsmaelMartinez/teams-for-linux/issues/1938
-- **Issue #1832**: https://github.com/IsmaelMartinez/teams-for-linux/issues/1832 (Graph API - now implemented)
+- **Issue #1938**: https://github.com/ruanvb/excel-for-linux/issues/1938
+- **Issue #1832**: https://github.com/ruanvb/excel-for-linux/issues/1832 (Graph API - now implemented)
 - **Service pattern**: `app/notificationSystem/index.js` (CustomNotificationManager)
 - **Screen sharing service**: `app/screenSharing/service.js` (existing IPC channels)
 - **Graph API client**: `app/graphApi/index.js` and `app/graphApi/ipcHandlers.js`

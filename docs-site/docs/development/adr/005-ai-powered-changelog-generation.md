@@ -296,5 +296,5 @@ permissions:
 
 ## Decision Makers
 
-- @IsmaelMartinez (Project Maintainer)
+- @ruanvb (Project Maintainer)
 - Claude Code (Implementation Assistant)

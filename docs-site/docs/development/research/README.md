@@ -1,6 +1,6 @@
 # Research Documentation
 
-This directory contains research, analysis, and strategic insights generated during the development and improvement of Teams for Linux.
+This directory contains research, analysis, and strategic insights generated during the development and improvement of Excel for Linux.
 
 :::info Research Context
 These documents capture in-depth analysis and strategic insights that inform development decisions and provide context for major features.
@@ -25,7 +25,7 @@ These documents capture in-depth analysis and strategic insights that inform dev
 - **[MQTT Extended Status Investigation](mqtt-extended-status-investigation.md)** - Extended MQTT status publishing
   - **Phase 1 Shipped**: Infrastructure, LWT, and call state publishing
   - **Phase 2 Deferred**: WebRTC camera/mic monitoring awaiting user feedback
-  - **Screen sharing:** PRs [#2193](https://github.com/IsmaelMartinez/teams-for-linux/pull/2193) and [#2144](https://github.com/IsmaelMartinez/teams-for-linux/pull/2144) open for MQTT screen sharing status
+  - **Screen sharing:** PRs [#2193](https://github.com/ruanvb/excel-for-linux/pull/2193) and [#2144](https://github.com/ruanvb/excel-for-linux/pull/2144) open for MQTT screen sharing status
 
 - **[Graph API Integration Research](graph-api-integration-research.md)** - Microsoft Graph API for enhanced features
   - **Phase 1 POC Complete**: Token acquisition, calendar/mail endpoints working
@@ -63,10 +63,10 @@ Research documents are deleted once a feature is fully shipped and the document 
 |---------|---------|-----------|
 | Electron-Updater Auto-Update | v2.7.6 | [ADR-011](../adr/011-appimage-update-info.md); research covered electron-updater integration |
 | External Changelog Generation | v2.7.x | [ADR-005](../adr/005-ai-powered-changelog-generation.md); fork detection + release automation shipped |
-| Screen Lock Media Privacy | --- | Closed ([#2106](https://github.com/IsmaelMartinez/teams-for-linux/issues/2106)); no user interest; work preserved in branch |
-| Tray Icon Logout Indicator | --- | Archived ([#1987](https://github.com/IsmaelMartinez/teams-for-linux/issues/1987)); user not responding; work preserved in branch |
-| External Browser Authentication | --- | Not feasible; Teams manages OAuth internally ([#2017](https://github.com/IsmaelMartinez/teams-for-linux/issues/2017)) |
-| GNOME Search Provider | --- | Not recommended; latency too high for acceptable UX ([#2075](https://github.com/IsmaelMartinez/teams-for-linux/issues/2075)) |
+| Screen Lock Media Privacy | --- | Closed ([#2106](https://github.com/ruanvb/excel-for-linux/issues/2106)); no user interest; work preserved in branch |
+| Tray Icon Logout Indicator | --- | Archived ([#1987](https://github.com/ruanvb/excel-for-linux/issues/1987)); user not responding; work preserved in branch |
+| External Browser Authentication | --- | Not feasible; Teams manages OAuth internally ([#2017](https://github.com/ruanvb/excel-for-linux/issues/2017)) |
+| GNOME Search Provider | --- | Not recommended; latency too high for acceptable UX ([#2075](https://github.com/ruanvb/excel-for-linux/issues/2075)) |
 | Code Quality Hardening (Phases 1-3) | v2.7.5 | Logging hygiene, resilience, input handling, IPC hardening, CI/CD gates |
 | Wayland/X11 Ozone Platform | v2.7.4 | Force X11 by default due to Electron 38+ Wayland regressions |
 | Quick Chat / Chat Modal | v2.7.4 | [ADR-014](../adr/014-quick-chat-deep-link-approach.md), [ADR-015](../adr/015-quick-chat-inline-messaging.md) |

@@ -4,7 +4,7 @@
 This feature is **disabled by default**. You must explicitly enable it in your configuration.
 :::
 
-Teams for Linux includes built-in **bidirectional** MQTT support, allowing you to:
+Excel for Linux includes built-in **bidirectional** MQTT support, allowing you to:
 - **Publish** your Microsoft Teams status to an MQTT broker for monitoring and automation
 - **Receive** action commands from MQTT to control Teams (toggle mute, video, etc.)
 
@@ -60,7 +60,7 @@ Create or edit your `config.json` file (see [Configuration Locations](configurat
     "brokerUrl": "mqtt://192.168.1.100:1883",
     "username": "your-username",
     "password": "your-password",
-    "clientId": "teams-for-linux",
+    "clientId": "excel-for-linux",
     "topicPrefix": "teams",
     "statusTopic": "status",
     "commandTopic": "command",
@@ -69,7 +69,7 @@ Create or edit your `config.json` file (see [Configuration Locations](configurat
 }
 ```
 
-### 2. Start Teams for Linux
+### 2. Start Excel for Linux
 
 Launch the application normally. The MQTT client will connect automatically and begin publishing status updates.
 
@@ -93,7 +93,7 @@ Add these options under the `mqtt` key in your `config.json`:
 | `brokerUrl` | `string` | `""` | MQTT broker URL (e.g., `mqtt://broker:1883` or `mqtts://broker:8883` for TLS) |
 | `username` | `string` | `""` | MQTT username (optional) |
 | `password` | `string` | `""` | MQTT password (optional) |
-| `clientId` | `string` | `"teams-for-linux"` | Unique client identifier |
+| `clientId` | `string` | `"excel-for-linux"` | Unique client identifier |
 | `topicPrefix` | `string` | `"teams"` | Topic prefix for all messages |
 | `statusTopic` | `string` | `"status"` | Topic name for status messages (outbound) |
 | `commandTopic` | `string` | `""` | Topic name for receiving commands (inbound). Leave empty or omit to disable command reception (status publishing only). Set to `"command"` to enable. |
@@ -113,7 +113,7 @@ Add these options under the `mqtt` key in your `config.json`:
 - **TLS/SSL**: `mqtts://broker.example.com:8883`
 
 :::note WebSocket Support
-While the underlying mqtt.js library supports WebSocket URLs (`ws://` and `wss://`), these have not been tested with Teams for Linux. If you successfully use WebSocket connections, please share your experience on [GitHub Issues](https://github.com/IsmaelMartinez/teams-for-linux/issues) or in our [Matrix Space](https://matrix.to/#/#teams-for-linux-space:matrix.org).
+While the underlying mqtt.js library supports WebSocket URLs (`ws://` and `wss://`), these have not been tested with Excel for Linux. If you successfully use WebSocket connections, please share your experience on [GitHub Issues](https://github.com/ruanvb/excel-for-linux/issues) or in our [GitHub Discussions](https://github.com/ruanvb/excel-for-linux/discussions).
 :::
 
 ## Message Format
@@ -125,7 +125,7 @@ Status updates are published as JSON with the following structure:
   "status": "busy",
   "statusCode": 2,
   "timestamp": "2025-11-12T14:30:00.000Z",
-  "clientId": "teams-for-linux"
+  "clientId": "excel-for-linux"
 }
 ```
 
@@ -149,7 +149,7 @@ Status updates are published as JSON with the following structure:
 
 ## MQTT Commands
 
-Teams for Linux can receive action commands via MQTT, allowing external systems to trigger Teams actions like toggle mute, toggle video, raise hand, and toggle blur.
+Excel for Linux can receive action commands via MQTT, allowing external systems to trigger Teams actions like toggle mute, toggle video, raise hand, and toggle blur.
 
 ### Command Message Format
 
@@ -232,7 +232,7 @@ Commands trigger Teams keyboard shortcuts. Only use trusted MQTT brokers and pro
 Calendar export requires **Graph API** to be enabled in your configuration. See [Configuration Options](#configuration-options) for MQTT setup.
 :::
 
-Teams for Linux can export calendar data via MQTT commands, allowing you to:
+Excel for Linux can export calendar data via MQTT commands, allowing you to:
 
 - Export calendar events programmatically
 - Convert to other formats (org-mode, CSV, iCalendar, etc.)
@@ -345,12 +345,12 @@ Use `jq` to format the JSON output for better readability. Install with `apt-get
 
 - Verify Graph API is enabled in config.json
 - Ensure you're logged in to Teams (Graph API requires authentication)
-- Check Teams for Linux logs for Graph API errors
+- Check Excel for Linux logs for Graph API errors
 - Verify date range parameters are valid ISO 8601 format
 
 **Authentication errors:**
 
-- Log out and log back in to Teams for Linux
+- Log out and log back in to Excel for Linux
 - Check Microsoft 365 permissions for your account
 - Verify Graph API scopes are granted (Calendars.Read)
 
@@ -364,10 +364,10 @@ The MQTT integration has been tested with various home automation platforms. How
 
 ### Share Your Automations
 
-If you've successfully integrated Teams for Linux with your home automation system, **please share your configurations** to help other users:
+If you've successfully integrated Excel for Linux with your home automation system, **please share your configurations** to help other users:
 
-- **[GitHub Issues](https://github.com/IsmaelMartinez/teams-for-linux/issues)** - Tag as enhancement and share your automation scripts
-- **[Matrix Space](https://matrix.to/#/#teams-for-linux-space:matrix.org)** - Discuss and share configurations with the community
+- **[GitHub Issues](https://github.com/ruanvb/excel-for-linux/issues)** - Tag as enhancement and share your automation scripts
+- **[GitHub Discussions](https://github.com/ruanvb/excel-for-linux/discussions)** - Discuss and share configurations with the community
 - **Supported Platforms**: Node-RED, n8n, openHAB, Domoticz, and other MQTT-enabled systems
 - **What to Share**:
   - Flow exports for Node-RED/n8n
@@ -406,7 +406,7 @@ mosquitto_sub -h localhost -t "teams/status" -v
 
 #### Testing Command Reception
 
-**1. Ensure Teams for Linux is running with MQTT enabled**
+**1. Ensure Excel for Linux is running with MQTT enabled**
 
 **2. Send test commands**:
 
@@ -433,7 +433,7 @@ mosquitto_pub -h localhost -t "teams/command" -m '{"action":"toggle-video"}' -q 
 - Verify `mqtt.enabled` is set to `true` in `config.json`
 - Check broker URL, username, and password are correct
 - Ensure the broker is reachable from your network
-- Check Teams for Linux logs for MQTT connection errors
+- Check Excel for Linux logs for MQTT connection errors
 - Verify your Teams status is actually changing in the Teams web interface
 
 #### Connection Refused
@@ -466,7 +466,7 @@ mosquitto_pub -h localhost -t "teams/command" -m '{"action":"toggle-video"}' -q 
 - This may occur if Teams UI structure has changed
 - Decrease `statusCheckInterval` for more frequent polling: `"statusCheckInterval": 5000`
 - Check browser console (DevTools) for JavaScript errors
-- Report the issue on [GitHub Issues](https://github.com/IsmaelMartinez/teams-for-linux/issues) with Teams version info
+- Report the issue on [GitHub Issues](https://github.com/ruanvb/excel-for-linux/issues) with Teams version info
 
 #### Commands Not Working
 
@@ -485,7 +485,7 @@ mosquitto_pub -h localhost -t "teams/command" -m '{"action":"toggle-video"}' -q 
 **Symptoms**: Logs show "window not available" when sending commands
 
 **Solutions**:
-- Ensure Teams for Linux window is open
+- Ensure Excel for Linux window is open
 - The application must be running for commands to work
 - Check that the window is not destroyed or minimized to tray
 
@@ -494,7 +494,7 @@ mosquitto_pub -h localhost -t "teams/command" -m '{"action":"toggle-video"}' -q 
 Enable debug logging to see detailed MQTT activity:
 
 ```bash
-ELECTRON_ENABLE_LOGGING=true teams-for-linux
+ELECTRON_ENABLE_LOGGING=true excel-for-linux
 ```
 
 For more logging options, see the **[Troubleshooting Guide](troubleshooting.md)**.
@@ -510,7 +510,7 @@ Check logs for MQTT-related messages:
 :::warning Important
 You should take extra care when sharing your status with other systems, especially externally. Monitor your MQTT subscribers, protect your passwords, rotate credentials regularly, isolate your local network from the Internet, and follow other security best practices.
 
-**We cannot take responsibility for any misuse of this feature or the application** as stated in our [LICENSE.md](https://github.com/IsmaelMartinez/teams-for-linux/blob/master/LICENSE.md) file.
+**We cannot take responsibility for any misuse of this feature or the application** as stated in our [LICENSE.md](https://github.com/ruanvb/excel-for-linux/blob/master/LICENSE.md) file.
 :::
 
 ### Basic Security Practices

@@ -1,6 +1,6 @@
-# Screen Sharing in Teams for Linux
+# Screen Sharing in Excel for Linux
 
-Teams for Linux provides screen sharing capabilities that integrate with the Microsoft Teams web interface.
+Excel for Linux provides screen sharing capabilities that integrate with the Microsoft Teams web interface.
 
 When you start screen sharing, a selection dialog appears showing available screens and windows. Once sharing begins, an optional preview window shows what you're sharing.
 
@@ -43,10 +43,10 @@ To disable the preview window entirely:
 #### Preview Window Not Appearing
 - **Check configuration**: Ensure `screenSharingThumbnail.enabled` is `true`
 - **Window manager**: Some Linux window managers may interfere with always-on-top windows
-- **Restart**: Try restarting Teams for Linux
+- **Restart**: Try restarting Excel for Linux
 
 #### Screen Selection Dialog Not Showing
-- **Permissions**: Check if Teams for Linux has screen capture permissions
+- **Permissions**: Check if Excel for Linux has screen capture permissions
 - **Wayland**: On Wayland, ensure proper screen sharing portal is configured
 - **X11**: Verify X11 screen capture is working
 
@@ -70,7 +70,7 @@ To disable the preview window entirely:
 #### macOS
 - Requires screen recording permissions
 - System will prompt for permission on first use
-- May need to add Teams for Linux to Security & Privacy settings
+- May need to add Excel for Linux to Security & Privacy settings
 
 #### Windows
 - No additional configuration required

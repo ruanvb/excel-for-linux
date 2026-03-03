@@ -2,20 +2,20 @@
 # https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 
 # Protect ownership rules themselves
-.github/CODEOWNERS @IsmaelMartinez
+.github/CODEOWNERS @ruanvb
 
 # CI/CD workflows
-.github/workflows/ @IsmaelMartinez
+.github/workflows/ @ruanvb
 
 # Dependabot configuration
-.github/dependabot.yml @IsmaelMartinez
+.github/dependabot.yml @ruanvb
 
 # Dependency management
-package.json @IsmaelMartinez
-package-lock.json @IsmaelMartinez
+package.json @ruanvb
+package-lock.json @ruanvb
 
 # Security-sensitive application code
-app/security/ @IsmaelMartinez
+app/security/ @ruanvb
 
 # Security policy
-SECURITY.md @IsmaelMartinez
+SECURITY.md @ruanvb

@@ -1,6 +1,6 @@
 # Troubleshooting Guide
 
-This guide provides solutions to common problems encountered with Teams for Linux, organized by category for quick reference.
+This guide provides solutions to common problems encountered with Excel for Linux, organized by category for quick reference.
 
 :::tip
 For configuration options, see [Configuration](configuration.md). For development information, see the IPC API documentation *(coming soon)*.
@@ -32,7 +32,7 @@ For configuration options, see [Configuration](configuration.md). For developmen
 **Solutions/Workarounds:**
 
 1.  **Clear Application Cache:**
-    *   Navigate to `~/.config/teams-for-linux/` (Linux) or `%APPDATA%\teams-for-linux\` (Windows).
+    *   Navigate to `~/.config/excel-for-linux/` (Linux) or `%APPDATA%\excel-for-linux\` (Windows).
     *   Delete the `Cache` and `Code Cache` directories.
     *   Restart the application.
 
@@ -59,9 +59,9 @@ For configuration options, see [Configuration](configuration.md). For developmen
 
     | Type of install | Location | Clean-up command |
     | :----------------------: | :---------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: |
-    | Vanilla install | `~/.config/teams-for-linux` | `rm -rf ~/.config/teams-for-linux` |
-    | snap | `~/snap/teams-for-linux/current/.config/teams-for-linux/` | `rm -rf ~/snap/teams-for-linux/current/.config/teams-for-linux/` |
-    | --user installed flatpak | `~/.var/app/com.github.IsmaelMartinez.teams_for_linux/config/teams-for-linux` | `rm -rf ~/.var/app/com.github.IsmaelMartinez.teams_for_linux/config/teams-for-linux` |
+    | Vanilla install | `~/.config/excel-for-linux` | `rm -rf ~/.config/excel-for-linux` |
+    | snap | `~/snap/excel-for-linux/current/.config/excel-for-linux/` | `rm -rf ~/snap/excel-for-linux/current/.config/excel-for-linux/` |
+    | --user installed flatpak | `~/.var/app/io.github.ruanvb.excel_for_linux/config/excel-for-linux` | `rm -rf ~/.var/app/io.github.ruanvb.excel_for_linux/config/excel-for-linux` |
     | From source | `~/.config/Electron/` | `rm -rf ~/.config/Electron/` |
 
 
@@ -92,7 +92,7 @@ For configuration options, see [Configuration](configuration.md). For developmen
         You should see a signing step in the output (ignore the "skipped macOS notarization" warning).
         The app will be built in the `dist/mac-arm64/` folder. Copy it to your Applications folder.
 
-**Related GitHub Issues:** [Issue #1225](https://github.com/IsmaelMartinez/teams-for-linux/issues/1225)
+**Related GitHub Issues:** [Issue #1225](https://github.com/ruanvb/excel-for-linux/issues/1225)
 
 ---
 
@@ -115,13 +115,13 @@ For configuration options, see [Configuration](configuration.md). For developmen
     ```
     This issue is related to the fontconfig cache. The above commands will clear it.
 
-**Related GitHub Issues:** [Issue #357](https://github.com/IsmaelMartinez/teams-for-linux/issues/357)
+**Related GitHub Issues:** [Issue #357](https://github.com/ruanvb/excel-for-linux/issues/357)
 
 ---
 
 #### Issue: Window decorations stuck in dark mode on GNOME systems
 
-**Description:** On GNOME desktop environments, Teams for Linux window decorations (title bar, borders) remain in dark mode even when the system theme is set to light mode.
+**Description:** On GNOME desktop environments, Excel for Linux window decorations (title bar, borders) remain in dark mode even when the system theme is set to light mode.
 
 **Potential Causes:**
 * Earlier versions of Electron had issues with properly responding to GNOME theme changes
@@ -130,13 +130,13 @@ For configuration options, see [Configuration](configuration.md). For developmen
 **Solutions/Workarounds:**
 
 1. **Update to Latest Version:**
-   * Ensure you're using Teams for Linux v2.2.1 or later, which includes Electron 37.2.6 with upstream fixes for GNOME theme handling
+   * Ensure you're using Excel for Linux v2.2.1 or later, which includes Electron 37.2.6 with upstream fixes for GNOME theme handling
    
 2. **Temporary Workaround (for older versions):**
    ```bash
    xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT "light"
    ```
-   Run this command while Teams for Linux is running to force light window decorations
+   Run this command while Excel for Linux is running to force light window decorations
 
 3. **System Theme Settings:**
    * Ensure your GNOME theme preference is properly set:
@@ -144,9 +144,9 @@ For configuration options, see [Configuration](configuration.md). For developmen
    gsettings set org.gnome.desktop.interface color-scheme prefer-light
    ```
 
-**Status:** Fixed in Teams for Linux v2.2.1+ (Electron 37.2.6)
+**Status:** Fixed in Excel for Linux v2.2.1+ (Electron 37.2.6)
 
-**Related GitHub Issues:** [Issue #1755](https://github.com/IsmaelMartinez/teams-for-linux/issues/1755)
+**Related GitHub Issues:** [Issue #1755](https://github.com/ruanvb/excel-for-linux/issues/1755)
 
 ---
 
@@ -175,7 +175,7 @@ For configuration options, see [Configuration](configuration.md). For developmen
 
 3.  **Restart PulseAudio (Linux):**
     *   Open a terminal and run: `pulseaudio -k && pulseaudio --start`
-    *   Restart Teams for Linux.
+    *   Restart Excel for Linux.
 
 **Related GitHub Issues:** [Link to relevant issues, e.g., #789, #1011]
 
@@ -195,20 +195,20 @@ For configuration options, see [Configuration](configuration.md). For developmen
 **Solutions/Workarounds:**
 
 1.  **Clear Teams Cache and Data:**
-    *   Close Teams for Linux completely.
-    *   Navigate to `~/.config/teams-for-linux/` (Linux) or `%APPDATA%\teams-for-linux\` (Windows).
+    *   Close Excel for Linux completely.
+    *   Navigate to `~/.config/excel-for-linux/` (Linux) or `%APPDATA%\excel-for-linux\` (Windows).
     *   Delete the entire `Cache`, `Code Cache`, and `Local Storage` directories.
     *   Restart the application and attempt to log in again.
 
 2.  **Check Network and Proxy Settings:**
     *   Ensure your internet connection is stable.
-    *   If you are behind a corporate proxy, ensure it is correctly configured in your system settings and that Teams for Linux can access the internet through it.
+    *   If you are behind a corporate proxy, ensure it is correctly configured in your system settings and that Excel for Linux can access the internet through it.
 
 **Related GitHub Issues:** [Link to relevant issues, e.g., #1212, #1314]
 
 #### Issue: Oauth Services require internal Electron window
 
-**Description:** Some OAuth services (for example, GitHub) require that authentication windows open inside Electron, but by default Teams for Linux opens links in an external browser.
+**Description:** Some OAuth services (for example, GitHub) require that authentication windows open inside Electron, but by default Excel for Linux opens links in an external browser.
 
 **Potential Causes:**
 *   Default browser behavior for opening external links.
@@ -233,12 +233,12 @@ For configuration options, see [Configuration](configuration.md). For developmen
 
 2.  **Clear Application Cache:**
     *   Close the application and delete the cache folder:
-        *   For a Vanilla install: `~/.config/teams-for-linux/Partitions/teams-4-linux/Application Cache`
-        *   For Snap: `~/snap/teams-for-linux/current/.config/teams-for-linux/Partitions/teams-4-linux/Application Cache`
-        *   For Flatpak: `~/.var/app/com.github.IsmaelMartinez.teams_for_linux/config/teams-for-linux/Partitions/teams-4-linux/Application Cache/`
+        *   For a Vanilla install: `~/.config/excel-for-linux/Partitions/teams-4-linux/Application Cache`
+        *   For Snap: `~/snap/excel-for-linux/current/.config/excel-for-linux/Partitions/teams-4-linux/Application Cache`
+        *   For Flatpak: `~/.var/app/io.github.ruanvb.excel_for_linux/config/excel-for-linux/Partitions/teams-4-linux/Application Cache/`
     If the blank page returns after reloading or closing the app, repeat the cache deletion step.
 
-**Related GitHub Issues:** [Issue #171](https://github.com/IsmaelMartinez/teams-for-linux/issues/171)
+**Related GitHub Issues:** [Issue #171](https://github.com/ruanvb/excel-for-linux/issues/171)
 
 ---
 
@@ -261,7 +261,7 @@ For configuration options, see [Configuration](configuration.md). For developmen
 ### Wayland / Display Issues
 
 :::info Default Behavior
-Since v2.7.4, Teams for Linux forces X11 mode (`--ozone-platform=x11`) by default on all Linux packaging formats. This avoids widespread regressions introduced in Electron 38+ when running as a native Wayland client.
+Since v2.7.4, Excel for Linux forces X11 mode (`--ozone-platform=x11`) by default on all Linux packaging formats. This avoids widespread regressions introduced in Electron 38+ when running as a native Wayland client.
 :::
 
 #### Issue: Blank or black window on Wayland
@@ -273,10 +273,10 @@ Since v2.7.4, Teams for Linux forces X11 mode (`--ozone-platform=x11`) by defaul
 1. **Upgrade to v2.7.4+** — X11 is now forced by default, which resolves this for most users.
 2. **For older versions:** Launch with `--ozone-platform=x11`:
     ```bash
-    teams-for-linux --ozone-platform=x11
+    excel-for-linux --ozone-platform=x11
     ```
 
-**Related GitHub Issues:** [#1604](https://github.com/IsmaelMartinez/teams-for-linux/issues/1604), [#1494](https://github.com/IsmaelMartinez/teams-for-linux/issues/1494), [#519](https://github.com/IsmaelMartinez/teams-for-linux/issues/519), [#504](https://github.com/IsmaelMartinez/teams-for-linux/issues/504)
+**Related GitHub Issues:** [#1604](https://github.com/ruanvb/excel-for-linux/issues/1604), [#1494](https://github.com/ruanvb/excel-for-linux/issues/1494), [#519](https://github.com/ruanvb/excel-for-linux/issues/519), [#504](https://github.com/ruanvb/excel-for-linux/issues/504)
 
 #### Issue: Maximized window has gaps or resizes on focus loss
 
@@ -286,7 +286,7 @@ Since v2.7.4, Teams for Linux forces X11 mode (`--ozone-platform=x11`) by defaul
 
 1. **Upgrade to v2.7.4+** — Forcing X11 mode resolves Wayland window management regressions.
 
-**Related GitHub Issues:** [#2094](https://github.com/IsmaelMartinez/teams-for-linux/issues/2094)
+**Related GitHub Issues:** [#2094](https://github.com/ruanvb/excel-for-linux/issues/2094)
 
 #### Issue: Blurry UI or fonts with fractional scaling on Wayland
 
@@ -299,11 +299,11 @@ Since v2.7.4, Teams for Linux forces X11 mode (`--ozone-platform=x11`) by defaul
 
 1. **Override to native Wayland mode** (if you don't experience other Wayland bugs):
     ```bash
-    teams-for-linux --ozone-platform=wayland
+    excel-for-linux --ozone-platform=wayland
     ```
 2. **Edit your `.desktop` file** to make the override permanent — replace `--ozone-platform=x11` with `--ozone-platform=wayland` in the `Exec=` line.
 
-**Related GitHub Issues:** [#1787](https://github.com/IsmaelMartinez/teams-for-linux/issues/1787)
+**Related GitHub Issues:** [#1787](https://github.com/ruanvb/excel-for-linux/issues/1787)
 
 :::note Important
 The `electronCLIFlags` config option (`config.json`) **cannot** override `--ozone-platform` because the flag must be set before the Electron process starts, and config is loaded after. Use command-line arguments or `.desktop` file edits instead.
@@ -324,4 +324,4 @@ The `electronCLIFlags` config option (`config.json`) **cannot** override `--ozon
 
 1.  **Enable Local Dictionaries:** Enable the use of local dictionaries by installing Hunspell along with your locale's dictionary. See the instructions at [Atom's spell-check README](https://github.com/atom/spell-check#debian-ubuntu-and-mint).
 
-**Related GitHub Issues:** [Issue #28](https://github.com/IsmaelMartinez/teams-for-linux/issues/28), [Issue #154](https://github.com/IsmaelMartinez/teams-for-linux/issues/154)
+**Related GitHub Issues:** [Issue #28](https://github.com/ruanvb/excel-for-linux/issues/28), [Issue #154](https://github.com/ruanvb/excel-for-linux/issues/154)

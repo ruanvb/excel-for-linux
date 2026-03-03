@@ -122,7 +122,7 @@ jobs:
         env:
           NEW_VERSION: ${{ steps.new_version.outputs.new }}
         run: |
-          git add package.json package-lock.json com.github.IsmaelMartinez.teams_for_linux.appdata.xml .changelog/
+          git add package.json package-lock.json excel-for-linux.appdata.xml .changelog/
           git commit -m "chore: release v$NEW_VERSION"
 
       - name: Push release branch

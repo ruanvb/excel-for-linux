@@ -24,7 +24,7 @@ Before enabling Intune SSO, ensure the following components are installed and co
 
 Enable Intune SSO in your configuration file. You can place the configuration in either:
 
-**User-specific**: `~/.config/teams-for-linux/config.json`
+**User-specific**: `~/.config/excel-for-linux/config.json`
 ```json
 {
   "auth": {
@@ -36,7 +36,7 @@ Enable Intune SSO in your configuration file. You can place the configuration in
 }
 ```
 
-**System-wide** (common in enterprise environments): `/etc/teams-for-linux/config.json`
+**System-wide** (common in enterprise environments): `/etc/excel-for-linux/config.json`
 ```json
 {
   "auth": {
@@ -87,7 +87,7 @@ The old flat configuration keys are still supported but deprecated:
 Enable debug logging to see detailed Intune diagnostics:
 
 ```bash
-ELECTRON_ENABLE_LOGGING=true teams-for-linux
+ELECTRON_ENABLE_LOGGING=true excel-for-linux
 ```
 
 Look for `[INTUNE_DIAG]` prefixed messages that provide information about:
@@ -99,7 +99,7 @@ Look for `[INTUNE_DIAG]` prefixed messages that provide information about:
 ### Verification
 
 To verify Intune integration is working:
-1. Start teams-for-linux with debug logging enabled
+1. Start excel-for-linux with debug logging enabled
 2. Look for `[INTUNE_DIAG] InTune SSO account configured successfully`
 3. The app should automatically authenticate
 

@@ -10,8 +10,8 @@ For the complete release process (including changelog generation and release PRs
 
 The `generate-release-info` script:
 
-1. **Validates version consistency** across `package.json`, `package-lock.json`, and `com.github.IsmaelMartinez.teams_for_linux.appdata.xml`
-2. **Extracts release notes** from the `com.github.IsmaelMartinez.teams_for_linux.appdata.xml` file
+1. **Validates version consistency** across `package.json`, `package-lock.json`, and `io.github.ruanvb.excel_for_linux.appdata.xml`
+2. **Extracts release notes** from the `io.github.ruanvb.excel_for_linux.appdata.xml` file
 3. **Generates a `release-info.json`** file conforming to [electron-builder's ReleaseInfo interface](https://www.electron.build/app-builder-lib.interface.releaseinfo)
 4. **Makes release info available** for Linux publishing to GitHub
 
@@ -67,7 +67,7 @@ npm run dist
 project/
 ├── package.json                           # Contains version and build config
 ├── package-lock.json                      # Version consistency check
-├── com.github.IsmaelMartinez.teams_for_linux.appdata.xml  # Source of release notes
+├── io.github.ruanvb.excel_for_linux.appdata.xml  # Source of release notes
 ├── release-info.json                      # Generated release info (dev)
 ├── scripts/
 │   ├── generateReleaseInfo.js             # Release info generator
@@ -149,7 +149,7 @@ The system performs validation and provides helpful error messages:
 ### Manual Generation
 
 ```bash
-cd /path/to/teams-for-linux
+cd /path/to/excel-for-linux
 npm run generate-release-info
 ```
 
@@ -159,7 +159,7 @@ npm run generate-release-info
 ✅ Version consistency check passed!
    package.json: 2.0.16
    package-lock.json: 2.0.16
-   com.github.IsmaelMartinez.teams_for_linux.appdata.xml: 2.0.16 (with release notes)
+   io.github.ruanvb.excel_for_linux.appdata.xml: 2.0.16 (with release notes)
 
 📋 Generated Release Info (electron-builder ReleaseInfo interface):
 
@@ -169,7 +169,7 @@ npm run generate-release-info
   "releaseDate": "2025-06-05"
 }
 
-💾 Release info saved to: /path/to/teams-for-linux/release-info.json
+💾 Release info saved to: /path/to/excel-for-linux/release-info.json
 ```
 
 ### Build Integration

@@ -1,7 +1,7 @@
 # Custom Notification System Research & Implementation Plan
 
 :::warning Phase 2 Dropped
-MVP shipped in v2.6.16. Phase 2 (chat, calendar, activity notifications) was attempted but dropped — notifications worked on the maintainer's machine but the user reported receiving no notifications at all. It remains unclear whether the implementation failed in their environment or whether the user's expectations differed from what was delivered. See [#2108](https://github.com/IsmaelMartinez/teams-for-linux/issues/2108), [#2039](https://github.com/IsmaelMartinez/teams-for-linux/issues/2039).
+MVP shipped in v2.6.16. Phase 2 (chat, calendar, activity notifications) was attempted but dropped — notifications worked on the maintainer's machine but the user reported receiving no notifications at all. It remains unclear whether the implementation failed in their environment or whether the user's expectations differed from what was delivered. See [#2108](https://github.com/ruanvb/excel-for-linux/issues/2108), [#2039](https://github.com/ruanvb/excel-for-linux/issues/2039).
 :::
 
 **Status:** MVP Complete (v2.6.16) | Phase 2 Dropped
@@ -14,7 +14,7 @@ MVP shipped in v2.6.16. Phase 2 (chat, calendar, activity notifications) was att
 
 ## Executive Summary
 
-This document tracks the development of a **custom notification modal system** for Teams for Linux as an alternative to OS-level notifications. The MVP (toast notifications) has been successfully implemented and released in v2.6.16.
+This document tracks the development of a **custom notification modal system** for Excel for Linux as an alternative to OS-level notifications. The MVP (toast notifications) has been successfully implemented and released in v2.6.16.
 
 ### Current Status
 
@@ -26,9 +26,9 @@ This document tracks the development of a **custom notification modal system** f
 
 - Custom BrowserWindow approach works well following the `IncomingCallToast` pattern for meeting notifications
 - Phase 2 notification routing worked reliably on the maintainer's machine during development and testing
-- The requesting user ([#2039](https://github.com/IsmaelMartinez/teams-for-linux/issues/2039)) reported receiving no notifications, or their expectations may have differed from what the implementation delivered
+- The requesting user ([#2039](https://github.com/ruanvb/excel-for-linux/issues/2039)) reported receiving no notifications, or their expectations may have differed from what the implementation delivered
 - Root cause is unclear: could be environment-specific (desktop environment, notification daemon, Teams account type) or a mismatch between what was built and what the user needed
-- Issue [#2039](https://github.com/IsmaelMartinez/teams-for-linux/issues/2039) closed as not feasible given the ambiguity
+- Issue [#2039](https://github.com/ruanvb/excel-for-linux/issues/2039) closed as not feasible given the ambiguity
 
 ---
 
@@ -224,7 +224,7 @@ Users reported OS-level notifications don't work reliably, especially on Linux:
 ### Why Custom BrowserWindow Approach
 
 - **No viable third-party libraries** - All existing packages are 5-9 years old
-- **React libraries incompatible** - Teams for Linux is an Electron wrapper, not a React app
+- **React libraries incompatible** - Excel for Linux is an Electron wrapper, not a React app
 - **Proven pattern** - `IncomingCallToast` demonstrates this approach works
 - **Full control** - Consistent experience across all platforms
 

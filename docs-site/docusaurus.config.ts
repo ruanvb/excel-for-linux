@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Teams for Linux Documentation',
-  tagline: 'Unofficial Microsoft Teams client for Linux - Documentation',
+  title: 'Excel for Linux Documentation',
+  tagline: 'Unofficial Microsoft Excel Online client for Linux - Documentation',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://ismaelmartinez.github.io',
+  url: 'https://ruanvb.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/teams-for-linux/',
+  baseUrl: '/excel-for-linux/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'IsmaelMartinez', // Usually your GitHub org/user name.
-  projectName: 'teams-for-linux', // Usually your repo name.
+  organizationName: 'ruanvb', // Usually your GitHub org/user name.
+  projectName: 'excel-for-linux', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -44,7 +44,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/IsmaelMartinez/teams-for-linux/tree/main/docs-site/',
+            'https://github.com/ruanvb/excel-for-linux/tree/main/docs-site/',
           routeBasePath: '/', // Serve the docs at the site's root
         },
         blog: false, // Disable blog for this documentation site
@@ -96,9 +96,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'Teams for Linux',
+      title: 'Excel for Linux',
       logo: {
-        alt: 'Teams for Linux Logo',
+        alt: 'Excel for Linux Logo',
         src: 'img/logo.svg',
       },
       hideOnScroll: true,
@@ -110,14 +110,14 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          href: 'https://github.com/IsmaelMartinez/teams-for-linux',
+          href: 'https://github.com/ruanvb/excel-for-linux',
           label: 'GitHub',
           position: 'right',
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
         },
         {
-          href: 'https://github.com/IsmaelMartinez/teams-for-linux/releases',
+          href: 'https://github.com/ruanvb/excel-for-linux/releases',
           label: 'Releases',
           position: 'right',
         },
@@ -154,11 +154,11 @@ const config: Config = {
           items: [
             {
               label: 'GitHub Issues',
-              href: 'https://github.com/IsmaelMartinez/teams-for-linux/issues',
+              href: 'https://github.com/ruanvb/excel-for-linux/issues',
             },
             {
               label: 'GitHub Discussions',
-              href: 'https://github.com/IsmaelMartinez/teams-for-linux/discussions',
+              href: 'https://github.com/ruanvb/excel-for-linux/discussions',
             },
           ],
         },
@@ -167,20 +167,20 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/IsmaelMartinez/teams-for-linux',
+              href: 'https://github.com/ruanvb/excel-for-linux',
             },
             {
               label: 'Releases',
-              href: 'https://github.com/IsmaelMartinez/teams-for-linux/releases',
+              href: 'https://github.com/ruanvb/excel-for-linux/releases',
             },
             {
               label: 'License',
-              href: 'https://github.com/IsmaelMartinez/teams-for-linux/blob/main/LICENSE.md',
+              href: 'https://github.com/ruanvb/excel-for-linux/blob/main/LICENSE.md',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Teams for Linux Contributors. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Excel for Linux Contributors. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
