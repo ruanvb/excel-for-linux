@@ -1,0 +1,1 @@
+build(deps): bump github/codeql-action from 3 to 4 (#4)
