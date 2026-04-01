@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-04-01T06:48:57.883Z",
+  "lookback_days": 30,
+  "summary": {
+    "issues_with_bot_comment": 0,
+    "thumbs_up": 0,
+    "thumbs_down": 0,
+    "no_reaction": 0,
+    "accuracy_percentage": null,
+    "quick_resolutions": 0,
+    "quick_resolution_window_hours": 48
+  },
+  "entries": []
+}
